@@ -10,25 +10,24 @@
 QUEUE *globalQ;
 pthread_mutex_t queue_update_mutex; // Mutex for synchronisation
 
-QUEUE * initializeQueue()
+void startQueueService()
 {
     printf("Queue: Initializing Queue\n");
-    QUEUE *q = malloc(sizeof (QUEUE));
-    q->firstIndex = 0;
-    q->lastIndex = MAX_QUEUE_LENGTH - 1;
-    q->currentQueueLen = 0;
+    globalQ = malloc(sizeof (QUEUE));
+    globalQ->firstIndex = 0;
+    globalQ->lastIndex = MAX_QUEUE_LENGTH - 1;
+    globalQ->currentQueueLen = 0;
 
     if (pthread_mutex_init(&queue_update_mutex, NULL) != 0) 
     { 
         printf("Queue: Mutex init has failed\n"); // TODO - Handle this failure
     } 
-    return q;
 }
 
-void destroyQueue(QUEUE *q)
+void stopQueueService()
 {
     printf("Queue: Destroying Queue\n");
-    free(q);
+    free(globalQ);
     pthread_mutex_destroy(&queue_update_mutex); 
 }
 

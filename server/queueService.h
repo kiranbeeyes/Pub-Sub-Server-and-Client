@@ -19,8 +19,9 @@ typedef struct Queue
 
 extern QUEUE *globalQ;   // Global Queue 
 
-QUEUE * initializeQueue();
-void destroyQueue(QUEUE *q);
+// TODO - currently, we are initializing a global queue. So QUEUE need not be passed in for other functions
+void startQueueService();
+void stopQueueService();
 int insertIntoQueue(QUEUE *q, unsigned char *data);
 unsigned char * retrieveFromQueue(QUEUE *q);
 int getCurrentQueueLength(QUEUE *q);

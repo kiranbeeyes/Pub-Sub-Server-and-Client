@@ -1,17 +1,17 @@
 /*
- * File: communicationService.c
+ * File: tcpCommunicationService.c
  * Purpose: This file contains the TCP Communication and Queue invocation implementation.
  */                                                                                                   
 
-#include "communicationService.h"
+#include "tcpCommunicationService.h"
 
-void initializeCommunicationService()
+void startTcpCommunicationService()
 {
     // Open TCP Port and start listening for incoming connections from PubSub Clients.
     // After connect(), if packets are seen i.e. recv(), invoke handlePackets()
 }
 
-void stopCommunicationService()
+void stopTcpCommunicationService()
 {
    // Close the TCP Port to stop accepting connections
 }

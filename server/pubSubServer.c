@@ -2,7 +2,7 @@
  * File: pubSubServer.c
  * Purpose: Starting point for the PubSub Server
  *          Invokes the bootstrap service to initialize all services needed.
- * Compilation: gcc queueService.c bootstrapService.c pubSubServer.c communicationService.c -o pubSubServer
+ * Compilation: gcc queueService.c bootstrapService.c pubSubServer.c tcpCommunicationService.c -o pubSubServer
  * Execution: ./pubSubServer
  */
 

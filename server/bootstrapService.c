@@ -5,16 +5,17 @@
 
 #include "bootstrapService.h"
 #include "queueService.h"
-#include "communicationService.h"
+#include "tcpCommunicationService.h"
 
 void boostrapServicesOnServer()
 {
-    globalQ = initializeQueue();
-    initializeCommunicationService(); // TODO - run this in a new thread and wait for it to finish
+    // TODO - run these as new threads and wait for them to finish
+    startQueueService();
+    startTcpCommunicationService();
 }
 
 void teardownServicesOnServer()
 {
-    destroyQueue(globalQ);
-    stopCommunicationService();
+    stopQueueService();
+    stopTcpCommunicationService();
 }
